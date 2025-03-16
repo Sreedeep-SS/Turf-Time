@@ -6,13 +6,14 @@ import turfsRoute from './routes/turfsRoute.js';
 dotenv.config();
 
 const app = express();
+const PORT = process.env.PORT || 5000;
 app.use(express.json());
 
 app.use("/api/turfs", turfsRoute)
 
-app.listen(5000, () => {
+app.listen(PORT, () => {
     connectDb();
-    console.log('Server running on port 5000!');
+    console.log('Server running at http:://localhost:'+PORT);
 });
 
 // 
