@@ -16,7 +16,11 @@ const turfSchema = new mongoose.Schema({
     image:{
         type: String,
         required: false
-    }
+    },
+    location:{
+        type: String,
+        required: false
+    },
 }, {
     timestamps: true
 }
