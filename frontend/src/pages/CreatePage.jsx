@@ -1,4 +1,5 @@
 import { useColorMode, useColorModeValue } from '@/components/ui/color-mode'
+import { useTurfStore } from '@/store/Product'
 import { Box, Heading, Input, VStack, Container, Button } from '@chakra-ui/react'
 import React from 'react'
 // import { Button, Container } from 'react-bootstrap'
@@ -12,8 +13,12 @@ const CreatePage = () => {
     owner_contact: ''
   })
 
-  const handleRegisterTurf = () => {
-    console.log(newTurf)
+
+  const {createTurf} = useTurfStore()
+  const handleRegisterTurf = async () => {
+    const {success, message} = await createTurf(newTurf)
+    console.log("Success", success)
+    console.log("Message", message)
   }
 
 
