@@ -6,7 +6,7 @@ export const useTurfStore = create((set) => ({
     setTurfs: (turfs) => set({ turfs }),
     createTurf: async (newTurf) => {
         if(!newTurf.name || !newTurf.price || !newTurf.location){
-            return {success: false, message:"Please fill in all fields"}
+            return {success: false, message:"Please fill in all the fields"}
         }
         const res = await fetch("/api/turfs", {
             method: "POST",
