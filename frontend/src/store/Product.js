@@ -5,8 +5,8 @@ export const useTurfStore = create((set) => ({
     turfs: [],
     setTurfs: (turfs) => set({ turfs }),
     createTurf: async (newTurf) => {
-        if(!newTurf.name || !newTurf.price || !newTurf.location){
-            return {success: false, message:"Please fill in all the fields"}
+        if (!newTurf.name || !newTurf.price || !newTurf.location) {
+            return { success: false, message: "Please fill in all the fields" }
         }
         const res = await fetch("/api/turfs", {
             method: "POST",
@@ -17,7 +17,13 @@ export const useTurfStore = create((set) => ({
         })
         const data = await res.json()
         set((state) => ({ turfs: [...state.turfs, data.data] }))
-        return {success: true , message:"Product created successfully"}
+        return { success: true, message: "Turf registered successfully" }
+    },
+    fetchTurfs: async () => {
+        const res = await fetch("/api/turfs")
+        const data = await res.json()
+        set({ turfs: data.data })
     }
+
 }));
 

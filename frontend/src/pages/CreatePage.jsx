@@ -76,14 +76,14 @@ const CreatePage = () => {
         >
           <VStack spacing={4} minH="50vh" justifyContent={"space-evenly"}>
             <Input
-              variant={'flushed'}
+              variant='subtle'
               placeholder='Turf Name'
               name='name'
               value={newTurf.name}
               onChange={(e) => setNewTurf({ ...newTurf, name: e.target.value })}
             />
             <Input
-              variant={'flushed'}
+              variant={'subtle'}
               placeholder='Price'
               name='price'
               type='number'
@@ -91,21 +91,21 @@ const CreatePage = () => {
               onChange={(e) => setNewTurf({ ...newTurf, price: e.target.value })}
             />
             <Input
-              variant={'flushed'}
+              variant={'subtle'}
               placeholder='Image URL'
               name='image'
               value={newTurf.image}
               onChange={(e) => setNewTurf({ ...newTurf, image: e.target.value })}
             />
             <Input
-              variant={'flushed'}
+              variant={'subtle'}
               placeholder='Location'
               name='location'
               value={newTurf.location}
               onChange={(e) => setNewTurf({ ...newTurf, location: e.target.value })}
             />
             <Input
-              variant={'flushed'}
+              variant={'subtle'}
               placeholder='Owner Contact'
               name='owner_contact'
               type='number'
