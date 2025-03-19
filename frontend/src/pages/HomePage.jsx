@@ -8,7 +8,7 @@ import TurfCard from '@/components/TurfCard'
 
 const HomePage = () => {
 
-  const {fetchTurfs, turfs} = useTurfStore()
+  const { fetchTurfs, turfs } = useTurfStore()
 
 
   useEffect(() => {
@@ -34,27 +34,31 @@ const HomePage = () => {
         </Text>
 
         <SimpleGrid
-          columns={{ base: 1, md: 2, lg: 3 }}
+          columns={{ base: 2, md: 2, lg: 3 }}
           spacing={10}
-          w={"full"}
+          spaceX={2}
+          padding={10}
+          justifyContent="center"
+          alignItems="center"
         >
           {turfs.map((turf) => {
-            console.log("Turf data:", turf)
+  
             return <TurfCard key={turf._id} turf={turf} />
           })}
         </SimpleGrid>
 
-        <Text fontSize='16px' textAlign={"center"} fontWeight={"bold"} color={"gray.500"}>
-          No more scheduling conflicts. No more double bookings. No more headaches. <br /> <br />
-          Unfortunately no turfs are available at the moment. Please check back later.
-          <Link to={"/create"}>
-            <Text color='blue.400' _hover={{ color: 'blue.600' }} >
-              Orrrrr register your own turf in seconds! ;)
-            </Text>
-          </Link>
+        {turfs.length === 0 && (
 
-        </Text>
-
+          <Text fontSize='16px' textAlign={"center"} fontWeight={"bold"} color={"gray.500"}>
+            No more scheduling conflicts. No more double bookings. No more headaches. <br /> <br />
+            Unfortunately no turfs are available at the moment. Please check back later.
+            <Link to={"/create"}>
+              <Text color='blue.400' _hover={{ color: 'blue.600' }} >
+                Orrrrr register your own turf in seconds! ;)
+              </Text>
+            </Link>
+          </Text>
+        )}
       </VStack>
 
     </Container>

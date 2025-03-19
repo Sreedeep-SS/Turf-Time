@@ -23,6 +23,16 @@ export const useTurfStore = create((set) => ({
         const res = await fetch("/api/turfs")
         const data = await res.json()
         set({ turfs: data.data })
+    },
+    deleteTurfs: async (pid) => {
+        const res = await fetch(`/api/turfs/${pid}`, {
+            method: "DELETE",
+        })
+        const data = await res.json()
+        if(!data.success) return { success: false, message: data.message}
+
+        set(state => ({ turfs: state.turfs.filter(turf => turf._id !== pid)}))
+
     }
 
 }));
